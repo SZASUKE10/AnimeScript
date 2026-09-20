@@ -1,6 +1,1 @@
-```
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-```
+Nothing should be ignored in this case, as only a markdown file (GUI_TUTORIAL_AND_MODELS_GUIDE.md) was added, which is a source/config file and not a build artifact, dependency, or temporary file.
