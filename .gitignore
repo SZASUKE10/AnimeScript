@@ -1,17 +1,40 @@
 ```
+# Build artifacts
+*.spec
+dist/
+build/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
 # Dependencies
-node_modules/
-
-# Editors
-.vscode/
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-
-# Environment
+.venv/
+venv/
+env/
 .env
 .env.local
 *.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# Temporary files
+*.tmp
+*.temp
 ```

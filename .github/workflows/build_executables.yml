@@ -2,7 +2,7 @@ name: Build Executables
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   build-windows:
@@ -21,7 +21,7 @@ jobs:
           
       - name: Build EXE
         run: |
-          pyinstaller --noconfirm --onefile --windowed --name "TAS_GUI" --add-data "src/ui;src/ui" src/ui/app.py
+          pyinstaller --noconfirm --onefile --windowed --name "TAS_GUI" --add-data "src/ui;src/ui" --hidden-import=tkinter --hidden-import=PIL src/ui/app.py
           
       - name: Upload Windows Artifact
         uses: actions/upload-release-asset@v1
@@ -49,7 +49,7 @@ jobs:
           
       - name: Build App
         run: |
-          pyinstaller --noconfirm --onefile --windowed --name "TAS_GUI" --add-data "src/ui:src/ui" src/ui/app.py
+          pyinstaller --noconfirm --onefile --windowed --name "TAS_GUI" --add-data "src/ui:src/ui" --hidden-import=tkinter --hidden-import=PIL src/ui/app.py
           
       - name: Zip Mac App
         run: zip -rj TAS_GUI_MacOS.zip dist/TAS_GUI.app
@@ -80,7 +80,7 @@ jobs:
           
       - name: Build AppImage (simplified as binary)
         run: |
-          pyinstaller --noconfirm --onefile --windowed --name "TAS_GUI" --add-data "src/ui:src/ui" src/ui/app.py
+          pyinstaller --noconfirm --onefile --windowed --name "TAS_GUI" --add-data "src/ui:src/ui" --hidden-import=tkinter --hidden-import=PIL src/ui/app.py
           
       - name: Zip Linux Binary
         run: zip -j TAS_GUI_Linux.zip dist/TAS_GUI
